@@ -60,4 +60,7 @@
     <string name="enter_application_name_or_website_url">Enter application name or website url</string>
     <string name="add">Add</string>
     <string name="save">Save</string>
+    <string name="tvapp_name">App Name</string>
+    <string name="username">UserName</string>
+    <string name="tvpassword">Password</string>
 </resources>

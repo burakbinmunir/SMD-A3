@@ -9,10 +9,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
+
 public class Home extends AppCompatActivity {
+
+    RecyclerView rvPasswords;
+    PasswordAdapter passwordAdapter;
+    ArrayList<Password> passwordArrayList;
 
     FloatingActionButton fabNewPassword;
     @Override
@@ -39,5 +47,20 @@ public class Home extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        passwordArrayList = new ArrayList<>();
+        passwordArrayList.add(new Password("insta", "OmerFarok", "OMerFarok"));
+        passwordArrayList.add(new Password("insta", "OmerFarok", "OMerFarok"));
+        passwordArrayList.add(new Password("insta", "OmerFarok", "OMerFarok"));
+        passwordArrayList.add(new Password("insta", "OmerFarok", "OMerFarok"));
+        passwordArrayList.add(new Password("insta", "OmerFarok", "OMerFarok"));
+        passwordArrayList.add(new Password("insta", "OmerFarok", "OMerFarok"));
+
+        rvPasswords = findViewById(R.id.rvPasswords);
+        rvPasswords.setHasFixedSize(true);
+        rvPasswords.setLayoutManager(new LinearLayoutManager(this));
+        passwordAdapter = new PasswordAdapter(passwordArrayList);
+        rvPasswords.setAdapter(passwordAdapter);
+
     }
 }
