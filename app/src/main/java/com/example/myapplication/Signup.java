@@ -54,6 +54,8 @@ public class Signup extends AppCompatActivity {
                 database.close();
                 etSignupPassword.setText("");
                 etSignupUserName.setText("");
+                Intent intent = new Intent(Signup.this, Login.class);
+                startActivity(intent);
             }
         });
     }

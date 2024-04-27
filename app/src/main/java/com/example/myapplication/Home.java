@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.View;
 
 import androidx.activity.EdgeToEdge;
@@ -21,6 +22,7 @@ public class Home extends AppCompatActivity {
     RecyclerView rvPasswords;
     PasswordAdapter passwordAdapter;
     ArrayList<Password> passwordArrayList;
+
 
     FloatingActionButton fabNewPassword;
     @Override
@@ -49,18 +51,17 @@ public class Home extends AppCompatActivity {
         });
 
         passwordArrayList = new ArrayList<>();
-        passwordArrayList.add(new Password("insta", "OmerFarok", "OMerFarok"));
-        passwordArrayList.add(new Password("insta", "OmerFarok", "OMerFarok"));
-        passwordArrayList.add(new Password("insta", "OmerFarok", "OMerFarok"));
-        passwordArrayList.add(new Password("insta", "OmerFarok", "OMerFarok"));
-        passwordArrayList.add(new Password("insta", "OmerFarok", "OMerFarok"));
-        passwordArrayList.add(new Password("insta", "OmerFarok", "OMerFarok"));
 
         rvPasswords = findViewById(R.id.rvPasswords);
         rvPasswords.setHasFixedSize(true);
         rvPasswords.setLayoutManager(new LinearLayoutManager(this));
-        passwordAdapter = new PasswordAdapter(passwordArrayList);
-        rvPasswords.setAdapter(passwordAdapter);
 
+        DatabaseHandler databaseHandler = new DatabaseHandler(Home.this);
+        databaseHandler.open();
+        passwordArrayList = databaseHandler.getUserPasswords();
+        databaseHandler.close();
+
+        passwordAdapter = new PasswordAdapter(Home.this, passwordArrayList);
+        rvPasswords.setAdapter(passwordAdapter);
     }
 }

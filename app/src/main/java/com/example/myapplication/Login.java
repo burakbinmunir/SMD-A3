@@ -62,7 +62,7 @@ public class Login extends AppCompatActivity {
 
                 }
                 else{
-                    Toast.makeText(Login.this, "Wrong credentiale, please try again..", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Login.this, "Wrong credentials, please try again..", Toast.LENGTH_LONG).show();
                     database.close();
                 }
             }

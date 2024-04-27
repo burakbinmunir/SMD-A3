@@ -63,4 +63,8 @@
     <string name="tvapp_name">App Name</string>
     <string name="username">UserName</string>
     <string name="tvpassword">Password</string>
+    <string name="edit_password_details">Edit password details</string>
+    <string name="save_changes">Save changes</string>
+    <string name="your_passwords_are_secure_with_us">Your passwords are secure with us</string>
+    <string name="fab">FAB</string>
 </resources>

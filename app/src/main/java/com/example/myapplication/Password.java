@@ -1,14 +1,27 @@
 package com.example.myapplication;
 
+import java.lang.ref.PhantomReference;
+
 public class Password {
     private String appName;
     private String appPassword;
     private String appUserName;
 
-    public Password(String appName, String appUserName, String appPassword) {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    private int id;
+
+    public Password(int id, String appName, String appUserName, String appPassword) {
         this.appName = appName;
         this.appPassword = appPassword;
         this.appUserName = appUserName;
+        this.id = id;
     }
 
     public String getAppName() {
